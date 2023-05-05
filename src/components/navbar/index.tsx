@@ -15,8 +15,12 @@ type Props = {
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 
+  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+
   // styles
-  const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow";
+  const navbarBackground: string = isTopOfPage
+    ? ""
+    : "bg-primary-100 drop-shadow";
   const flexBetweenStyle = "flex items-center justify-between";
   const navWrapperStyle = "fixed top-0 z-30 w-full py-6";
   const containerStyle = "mx-auto w-5/6";
@@ -30,7 +34,6 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   const modalBtnContainer = "flex justify-end p-12";
   const xmarkStyle = "h-6 w-6 text-gray-400 hover:text-gray-500 duration-500";
   const itemsModalStyle = "ml-[33%] flex flex-col gap-10 text-2xl";
-  const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
   // functionality
   const toggleMenu = () => {
@@ -38,7 +41,6 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
   };
 
   // elements
-
   const Menu = () => {
     // toggle classes depends on isAboveMediumScreens
     const bigScreen = `${flexBetweenStyle} ${itemsBigStyle}`;
