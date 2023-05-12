@@ -8,6 +8,7 @@ import SponsorFortune from "@/assets/SponsorFortune.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
+import LearnButton from "@/shared/LearnButton";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
@@ -15,11 +16,6 @@ type Props = {
 
 const Home = ({ setSelectedPage }: Props) => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-
-  // Functionality
-  const handleClick = () => {
-    setSelectedPage(SelectedPage.ContactUs);
-  };
 
   // components style
   const homeStyle = "py-20 md:h-full md:pb-0 bg-gray-20";
@@ -32,8 +28,6 @@ const Home = ({ setSelectedPage }: Props) => {
     "w-1/3 mb-8 w-[100%] md:before:absolute md:before:content-evolvetext md:before:-top-20 md:before:-left-20 before:z-[-1]";
   const btnsContainerStyle =
     "flex items-center justify-between mt-4 w-2/3 mt-16 max-w-[270px]";
-  const moreBtnStyle =
-    "underline font-bold text-primary-500 text-sm hover:text-secondary-500 cursor-pointer";
   const imageWrapperStye = "flex justify-center";
   const sponsorsStyle = "h-1/6 bg-primary-100 px-10";
   const sponsorsWrapper =
@@ -43,20 +37,14 @@ const Home = ({ setSelectedPage }: Props) => {
     return (
       <div className={btnsContainerStyle}>
         <ActionButton setSelectedPage={setSelectedPage}>Join Now</ActionButton>
-        <AnchorLink
-          className={moreBtnStyle}
-          onClick={handleClick}
-          href={`#${SelectedPage.ContactUs}`}
-        >
-          <p>Learn More</p>
-        </AnchorLink>
+        <LearnButton setSelectedPage={setSelectedPage}>Learn More</LearnButton>
       </div>
     );
   };
 
   const MainHeader = () => {
     return (
-      <motion.div className={mainHeaderStyle}>
+      <div className={mainHeaderStyle}>
         <div className={mainHeaderWrapperStyle}>
           <div className={mainHeaderImageStyle}>
             <img src={HomePageText} alt="Home text" />
@@ -68,15 +56,15 @@ const Home = ({ setSelectedPage }: Props) => {
           </p>
           {<Buttons />}
         </div>
-      </motion.div>
+      </div>
     );
   };
 
   const ImageHeader = () => {
     return (
-      <motion.div className={imageWrapperStye}>
+      <div className={imageWrapperStye}>
         <img src={HomePageGraphic} alt="Home page graphic" />
-      </motion.div>
+      </div>
     );
   };
 
@@ -104,6 +92,7 @@ const Home = ({ setSelectedPage }: Props) => {
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
           }}
+          onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
         >
           {<MainHeader />}
         </motion.div>
