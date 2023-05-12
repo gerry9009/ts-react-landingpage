@@ -6,7 +6,6 @@ import SponsorRedBull from "@/assets/SponsorRedBull.png";
 import SponsorForbes from "@/assets/SponsorForbes.png";
 import SponsorFortune from "@/assets/SponsorFortune.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
 import LearnButton from "@/shared/LearnButton";
 
@@ -14,24 +13,25 @@ type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
+// components style
+const homeStyle = "py-20 md:h-full md:pb-0 bg-gray-20";
+const homeWrapperStyle =
+  "mx-auto w-5/6 md:h-5/6 flex flex-col items-center md:flex-row space-around";
+
+const mainHeaderStyle = "flex flex-col p-4 md:p-0 md:relative z-10 ";
+const mainHeaderWrapperStyle = "md:w-2/3";
+const mainHeaderImageStyle =
+  "w-1/3 mb-8 w-[100%] md:before:absolute md:before:content-evolvetext md:before:-top-20 md:before:-left-20 before:z-[-1]";
+const btnsContainerStyle =
+  "flex items-center justify-between mt-4 w-2/3 mt-16 max-w-[270px]";
+const imageWrapperStye = "flex justify-center";
+const sponsorsStyle = "h-1/6 bg-primary-100 px-10";
+const sponsorsWrapper =
+  "w-3/5 flex items-center justify-between h-full mx-auto";
+
 const Home = ({ setSelectedPage }: Props) => {
   const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 
-  // components style
-  const homeStyle = "py-20 md:h-full md:pb-0 bg-gray-20";
-  const homeWrapperStyle =
-    "mx-auto w-5/6 md:h-5/6 flex flex-col items-center md:flex-row space-around";
-
-  const mainHeaderStyle = "flex flex-col p-4 md:p-0 md:relative z-10 ";
-  const mainHeaderWrapperStyle = "md:w-2/3";
-  const mainHeaderImageStyle =
-    "w-1/3 mb-8 w-[100%] md:before:absolute md:before:content-evolvetext md:before:-top-20 md:before:-left-20 before:z-[-1]";
-  const btnsContainerStyle =
-    "flex items-center justify-between mt-4 w-2/3 mt-16 max-w-[270px]";
-  const imageWrapperStye = "flex justify-center";
-  const sponsorsStyle = "h-1/6 bg-primary-100 px-10";
-  const sponsorsWrapper =
-    "w-3/5 flex items-center justify-between h-full mx-auto";
   // Components
   const Buttons = () => {
     return (

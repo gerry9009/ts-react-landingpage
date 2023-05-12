@@ -89,7 +89,7 @@ const Benefits = ({ setSelectedPage }: Props) => {
 
   const DescriptionBtn = () => {
     return (
-      <div className=" relative  py-20">
+      <div className=" relative py-20">
         <ActionButton setSelectedPage={setSelectedPage}>Join Now</ActionButton>
         <img
           className="absolute bottom-0 right-20"
