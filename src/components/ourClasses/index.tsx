@@ -82,6 +82,7 @@ const OurClasses = ({ setSelectedPage }: Props) => {
                   image={image.image}
                   name={image.name}
                   description={image.description}
+                  key={image.name}
                 />
               );
             })}
